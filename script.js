@@ -6,7 +6,7 @@ $(document).ready(function(){
         }else{
             $('.navbar').removeClass("sticky");
         }
-        
+
         // scroll-up button show/hide script
         if(this.scrollY > 500){
             $('.scroll-up-btn').addClass("show");
@@ -35,14 +35,14 @@ $(document).ready(function(){
 
     // typing text animation script
     var typed = new Typed(".typing", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
+        strings: ["VFX artist", "Developer", "CGI artist", "Character animator", "Freelancer", "Physicist(enthusiast)","Mathematician(enthusiast)","Student"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
     var typed = new Typed(".typing-2", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
+        strings: ["VFX artist", "Developer", "CGI artist", "Character animator", "Freelancer", "Physicist(enthusiast)","Mathematician(enthusiast)","Student"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
