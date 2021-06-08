@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>Scala - Mobile, distributed and anonymous.</title>
+<meta name="description" content="Distributed wealth for all devices.">
+<meta name="author" content="Scala development team">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/colors.css">
+<link href="css/fontawesome.css" rel="stylesheet">
+<style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/sorttable.js"></script>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@scalahq"/>
+<meta name="twitter:title" content="Scala - Mobile, distributed and anonymous."/>
+<meta name="twitter:description" content="Distributed wealth for all devices."/>
+<meta name="twitter:image" content="https://scalaproject.io/assets/img/tcard.jpg"/>
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#238bff">
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+<meta name="theme-color" content="#191e26">
+
+<script>
+    function copy(id) {
+        setClipboard($("#"+id+"_address").val());
+        $("#"+id+"_c").text("copied!");
+        setTimeout(function(){
+            $("#"+id+"_c").text(id.toUpperCase());
+        }, 750);
+    }
+
+    function setClipboard(value) {
+        var tempInput = document.createElement("input");
+        tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+        tempInput.value = value;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+</script>
+
+    <!-- Copy -->
+    <script>
+      function tab(tab, a, b) {
+        $("#"+tab+"_"+b).hide();
+        $("#"+tab+"_"+a).show();
+        $("#"+tab+"_"+b).removeClass("active");
+        $("#"+tab+"_"+a+"_b").removeClass("bg-darker c-grey").addClass(" bg-lighter");
+        $("#"+tab+"_"+b+"_b").removeClass("bg-lighter").addClass("bg-darker");
+      }
+   </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="top-fix bg-grey full-width">
+    <div class="container">
+      <nav>
+        <div class="row">
+          <div class="fixed-col x1-fifth no-lh">
+            <a href="#"><img src="assets/img/logo.svg"height="32px"></a>
+          </div>
+          <div class="fixed-col x4-fifth t-right">
+            <a class="button small bg-lighter main-menu" id="showsupport"><i class="fas fa-star"></i></a>
+            <a class="button small bg-lighter main-menu" id="showstats"><i class="fas fa-chart-bar"></i></a>
+            <a class="button small bg-lighter main-menu" id="showdownloads"><i class="fas fa-download"></i></a>
+            <a class="button small bg-blue main-menu" id="showmenu"><i class="fas fa-bars"></i> <span class="hide-menu-small">Menu</span></a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="box-wrap">
+        
+<!-- Navigation -->
+<div class="boxed bg-black drop-down shadowed navigation" style="display: none;">
+  <div class="spacer-bottom">
+    <h5>Navigation</h5>
+  </div>
+  <ul>
+    <li>
+      <a href="#algorithm" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-microchip"></i>
+        <div class="nav-item">
+          <div>Algorithm</div>
+          <div class="c-black small">Mobile-friendly PoW</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#storage" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-hdd"></i>
+        <div class="nav-item">
+          <div>Checkpoints</div>
+          <div class="c-black small">Light dPoW solution</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#anonymity" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-shield-alt"></i>
+        <div class="nav-item">
+          <div>Anonymity</div>
+          <div class="c-black small">Powered by CryptoNote</div>
+        </div>
+      </a>
+    </li>
+
+    <li>
+      <a href="#vault" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-credit-card"></i>
+        <div class="nav-item">
+          <div>Scala Vault</div>
+          <div class="c-black small">A secure and lightweight wallet for Android.</div>
+        </div>
+      </a>
+    </li>
+
+    <li>
+      <a href="#spay" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-credit-card"></i>
+        <div class="nav-item">
+          <div>ScalaPay</div>
+          <div class="c-black small">Instant micro payments</div>
+        </div>
+      </a>
+    </li>
+
+    <li>
+      <a href="#mobileminer" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-mobile-alt"></i>
+        <div class="nav-item">
+          <div>Mobile Miner</div>
+          <div class="c-black small">For all latest android devices</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#team" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-users"></i>
+        <div class="nav-item">
+          <div>Team</div>
+          <div class="c-black small">Core contributors</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#footer" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-chevron-down"></i>
+        <div class="nav-item">
+          <div>Footer</div>
+          <div class="c-black small">Downloads and social media</div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Downloads -->
+<div class="boxed bg-black drop-down shadowed downloads" style="display: none;">
+  <div class="spacer-bottom">
+    <h5>Downloads</h5>
+  </div>
+  <ul>
+    <li>
+      <a href="https://github.com/scala-network/scala-electron-gui/releases" target="_blank" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-desktop"></i>
+        <div class="nav-item">
+          <div>GUI wallet</div>
+          <div class="c-black small">Linux/Mac/Windows</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/scala-network/Scala/releases" target="_blank" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-terminal"></i>
+        <div class="nav-item">
+          <div>CLI wallet</div>
+          <div class="c-black small">Linux/Mac/Windows</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/scala-network/XLArig/releases" target="_blank" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fas fa-terminal"></i>
+        <div class="nav-item">
+          <div>CLI miner</div>
+          <div class="c-black small">Linux/Mac/Windows</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/scala-network/MobileMiner/releases" target="_blank" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fab fa-android"></i>
+        <div class="nav-item">
+          <div>Mobile miner</div>
+          <div class="c-black small">Android</div>
+        </div>
+      </a>
+    </li>
+
+    <li>
+      <a href="https://github.com/scala-network/ScalaVault/releases" target="_blank" class="button bg-grey full-width no-margin myclick">
+        <i class="c-lighter icon-circle bg-black c-blue fab fa-android"></i>
+        <div class="nav-item">
+          <div>Scala Vault</div>
+          <div class="c-black small">Android</div>
+        </div>
+      </a>
+    </li>
+
+  </ul>
+</div>
+
+<!-- Statistics -->
+<div class="boxed bg-black drop-down shadowed stats" style="display: none;">
+  <h5>Statistics</h5>
+  <div>
+    <article>
+      <header>
+        <h6 class="c-lighter"><i class="fas fa-coins"></i> Supply</h6>
+      </header>
+      <hr>
+      <ul class="spacer-bottom">
+        <li>Total<span class="right c-lighter">0 XLA</span></li>
+        <li>Circulating<span class="right c-lighter">-3 800 000 000 XLA</span></li>
+      </ul>
+    </article>
+  </div>
+  <div>
+    <article>
+      <header>
+        <h6 class="c-lighter"><i class="fas fa-network-wired"></i> Network</h6>
+      </header>
+      <hr>
+      <ul class="spacer-bottom">
+        <li>Hashrate<span class="right c-lighter">19.88 Mh/s</span></li>
+        <li>Difficulty<span class="right c-lighter">2 385 553 621</span></li>
+        <li>Block height<span class="right c-lighter">223 907</span></li>
+      <li>Transaction count<span class="right c-lighter">86 750</span></li>
+      </ul>
+    </article>
+  </div>
+  <div>
+    <article>
+      <header>
+        <h6 class="c-lighter"><i class="fas fa-store"></i> Market</h6>
+      </header>
+      <hr>
+      <ul class="spacer-bottom">
+      </ul>
+    </article>
+  </div>
+</div>
+
+<!-- Donations -->
+      </div>
+    </div>
+  </div>
+  <main>
+    <!-- Header -->
+    <div class="full-width bg-black">
+      <div class="container">
+        <section>
+          <div class="row">
+            <div class="col x1-half d-push-top">
+              <article>
+                <img src="assets/img/header.png" width="350px" class="show-mobi full-width push-top">
+                <hgroup class="push-top">
+                  <h1 class="c-blue">Scala is an open-source cryptocurrency.</h1>
+                  <h2 class="large spacer-bottom fat">Distributed wealth for all devices.</h2>
+                </hgroup>
+                <div class="spacer-top">
+                  <a href="https://github.com/scala-network/" target="_blank" class="button xl bg-green"><i class="fab fa-github"></i> Contribute on GitHub</a>
+                </div>
+              </article>
+            </div>
+            <div class="col x1-half t-center push-top-hard hide-mobi">
+              <img src="assets/img/header.png" class="full-width">
+            </div>
+          </div>
+        </section>
+
+        <!-- Features -->
+        <section>
+          <div class="row push-bottom push-top">
+            <div class="col x1-third spacer-top">
+              <article>
+                <header>
+                  <img src="assets/img/algorithm-small.png" width="125px" class="left medium-push-right">
+                  <h3 class="h4 spacer-top">Mobile</h3>
+                </header>
+                <p class="c-grey small">Mine Scala on your PC and Android smart devices.</p>
+              </article>
+            </div>
+            <div class="col x1-third spacer-top">
+              <article>
+                <header>
+                  <img src="assets/img/storage-small.png" width="125px" class="left medium-push-right">
+                  <h3 class="h4 spacer-top">Distributed</h3>
+                </header>
+                <p class="c-grey small">Sensitive blockchain data is stored in a P2P network.</p>
+              </article>
+            </div>
+            <div class="col x1-third spacer-top">
+              <article>
+                <header>
+                  <img src="assets/img/anonymity-small.png" width="125px" class="left medium-push-right">
+                  <h3 class="h4 spacer-top">Anonymous</h3>
+                </header>
+                <p class="c-grey small">Balances and transactions are invisible to others.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="content-box push-top">
+
+        <!-- Algorithm -->
+        <section class="push-bottom-hard scroll-box" id="algorithm">
+          <div class="row">
+            <div class="col x1-half push-top">
+              <article>
+                <header>
+                  <h2 class="c-blue">A mobile-friendly PoW algorithm</h2>
+                  <h3>Optimized for CPU and ARM architectures.</h3>
+                </header>
+              </article>
+            </div>
+            <div class="col x1-half t-center">
+              <img src="assets/img/algorithm2.png" width="300px" class="mobi-full-width">
+            </div>
+          </div>
+          <div class="row spacer-bottom">
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>Panthera algorithm</h4>
+                </header>
+                <p>
+                  Panthera is a customized hybrid algorithm combining <i>RandomX, Kangaroo12</i> and <i>Yespower</i>.
+                </p>
+                <p>
+                  It was optimized to fit more energy-efficient CPU and ARM architectures.
+                </p>
+              </article>
+            </div>
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>Temperature control</h4>
+                </header>
+                <p>
+                  We developed a machine learning algorithm called AMAYC<i> (As-Much-As-You-Can)</i> which
+                  prevents your mobile CPU and battery from overheating.
+                </p>
+              </article>
+            </div>
+          </div>
+          <hr>
+          <div class="small spacer-top">
+            <div class="t-right">
+              <a href="https://github.com/tevador/RandomX" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> RandomX</a>
+              <a href="https://www.openwall.com/yespower/" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> Yespower</a>
+              <a href="https://keccak.team/kangarootwelve.html" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> Kangaroo12</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Storage -->
+        <section class="push-bottom-hard scroll-box" id="storage">
+          <div class="row">
+            <div class="col x1-half push-top">
+              <article>
+                <header>
+                  <h2 class="c-blue">A light dPoW solution <span class="c-black">(in mainnet beta)</span></h2>
+                  <h3>Distributed checkpoints.</h3>
+                </header>
+              </article>
+            </div>
+            <div class="col x1-half t-center">
+              <img src="assets/img/storage.png" width="300px" class="mobi-full-width">
+            </div>
+          </div>
+          <div class="row spacer-bottom">
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>Notary nodes</h4>
+                </header>
+                <p>
+                  A group of democratically elected network supporters host the node-lists and checkpoints in a distributed network, powered by IPFS and LMDB.
+                </p>
+              </article>
+            </div>
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>Maintainability, speed and security</h4>
+                </header>
+                <p>
+                  Notary nodes make the network easier to maintain while providing faster synchronization speeds and better protection from 51% attacks.</p>
+              </article>
+            </div>
+          </div>
+          <hr>
+          <div class="small spacer-top">
+            <div class="t-right">
+              <a href="https://ipfs.io/" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> IPFS</a>
+              <a href="https://symas.com/lmdb/" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> LMDB</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Privacy -->
+        <section class="push-bottom-hard scroll-box" id="anonymity">
+          <div class="row">
+            <div class="col x1-half push-top">
+              <article>
+                <header>
+                  <h2 class="c-blue">Anonymity and security</h2>
+                  <h3>Powered by the CryptoNote protocol.</h3>
+                </header>
+              </article>
+            </div>
+            <div class="col x1-half t-center">
+              <img src="assets/img/anonymity.png" width="300px" class="mobi-full-width">
+            </div>
+          </div>
+          <div class="row spacer-bottom">
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>CryptoNote</h4>
+                </header>
+                <p>
+                The well-tested CryptoNote protocol enhances your privacy and security by providing anonymous transactions, blockchain-analysis resistance and much more.
+              </article>
+            </div>
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>Features</h4>
+                </header>
+                <ul>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Untraceable, unlinkable transactions</li>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Double-spending proof</li>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Egalitarian proof-of-work</li>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Adaptive Parameters</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+          <hr>
+          <div class="small spacer-top">
+            <div class="t-right">
+              <a href="https://cryptonote.org/" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> Cryptonote</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Phantom -->
+        <section class="push-bottom-hard scroll-box" id="anonymity">
+          <div class="row">
+            <div class="col x1-half push-top">
+              <article>
+<header>
+<h2 class="c-blue">Phantom <span class="c-black">(in development)</span></h2>
+</header>
+<h3>
+	A Distributed Content Delivery Network platform
+</h3>
+
+              </article>
+            </div>
+            <div class="col x1-half t-center">
+              <img src="assets/img/TC_3.png" width="300px" class="mobi-full-width">
+            </div>
+          </div>
+          <div class="row spacer-bottom">
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>Scalability</h4>
+                </header>
+                <p>
+                Provides users with a piece of technology that can let anyone and everyone host files.
+              </article>
+
+              <article>
+                <header>
+                  <h4>Distributed</h4>
+                </header>
+                <p>
+                The files are content-addressed and distributed using mobile devices and layer-2 nodes in the Scala network.
+              </article>
+            </div>
+            <div class="col x1-half">
+              <article>
+                <header>
+                  <h4>Features</h4>
+                </header>
+                <ul>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Fast</li>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Secure</li>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Resilient</li>
+                  <li><i class="fas fa-check c-green spacer-top"></i> Affordable</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+          <hr>
+          <div class="small spacer-top">
+            <div class="t-right">
+              <a href="https://webtorrent.io/" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> WebTorrent</a>
+              <a href="https://ipfs.io/" target="_blank" class="button small bg-lighter c-grey"><i class="fas fa-link c-lighter"></i> IPFS</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Payment Gateway -->
+        <section class="push-bottom-hard scroll-box" id="vault">
+          <div class="row">
+            <div class="col x1-half push-top">
+              <article class="spacer-bottom">
+                <hgroup>
+                  <h2 class="c-blue">Scala Vault</h2>
+                  <h3 class="spacer-bottom">A secure and lightweight wallet for Android.</h3>
+                  <div class="t-center show-mobi">
+                    <img src="assets/img/vault.png" class="full-width">
+                  </div>
+                </hgroup>
+                <p>
+			Scala Vault is a simple, fast and open-source wallet for Android. It allows you to safely store, send and receive your Scala coins without worrying about the technical details.
+		</p>
+                <p>
+			It features automatic connection to remote nodes, multiple wallets, subaddresses, multi-language support and a built-in currency converter.
+		</p>
+              </article>
+              <hr>
+              <div class="spacer-top">
+                <a href="#" class="button bg-green"><i class="fab fa-google-play"></i> Play Store</a>
+                <a href="https://github.com/scala-network/ScalaVault/releases" class="button bg-lighter c-lighter"><i class="fab fa-github"></i> Github</a>
+              </div>
+            </div>
+            <div class="col x1-half t-center hide-mobi">
+              <img src="assets/img/vault.png" width ="325px" class="medium-full-width">
+            </div>
+          </div>
+        </section>
+
+        <!-- Payment Gateway -->
+        <section class="push-bottom-hard scroll-box" id="spay">
+          <div class="row">
+            <div class="col x1-half push-top">
+              <article class="spacer-bottom">
+                <hgroup>
+                  <h2 class="c-blue">ScalaPay</h2>
+                  <h3 class="spacer-bottom">Instant and anonymous micro transactions.</h3>
+                  <div class="t-center show-mobi">
+                    <img src="assets/img/spay.png" class="full-width">
+                  </div>
+                </hgroup>
+                <p>ScalaPay is a web-based payment gateway with anonymous zero-confirmation transactions.</p>
+                <p>It is compatible with the Point-of-Sale system, provides webhooks, and a simple one-link integration for developers and merchants.</p>
+              </article>
+              <hr>
+              <div class="spacer-top">
+                <a href="#" class="button bg-green"><i class="fas fa-user-plus"></i> Create account</a>
+                <a href="#" class="button bg-lighter c-lighter"><i class="fas fa-credit-card"></i> Payment demo</a>
+              </div>
+            </div>
+            <div class="col x1-half t-center hide-mobi">
+              <img src="assets/img/spay.png" width ="325px" class="medium-full-width">
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Payment Gateway -->
+        <section class="push-bottom scroll-box" id="mobileminer">
+          <div class="row">
+            <div class="col x1-half push-top">
+              <article class="spacer-bottom">
+                <hgroup>
+                  <h2 class="c-blue">Mobile Mining</h2>
+                  <h3 class="spacer-bottom">Start mining on all latest Android devices.</h3>
+                  <div class="t-center show-mobi">
+                    <img src="assets/img/mobile-miner.png" class="full-width">
+                  </div>
+                </hgroup>
+                <p>Smart devices have a more energy-efficient CPU architecture than desktop computers, which makes them a great utility for mining.</p>
+                <p>The mobile mining application is easy to set up and works on all smart devices powered by Android.</p>
+              </article>
+              <hr>
+              <div class="spacer-top">
+                <a href="https://mobileminer.scalaproject.io" target="_blank" class="button bg-green"><i class="fas fa-download"></i> Download .apk</a>
+              </div>
+            </div>
+            <div class="col x1-half t-center hide-mobi">
+              <img src="assets/img/mobile-miner.png" width ="325px" class="medium-full-width">
+            </div>
+          </div>
+        </section>
+
+        <!-- Contributors -->
+        <section class="push-bottom-hard scroll-box" id="team">
+          <div class="spacer-top">
+            <header>
+              <h2 class="c-blue push-top">Team</h2>
+              <h3>Core contributors</h3>
+            </header>
+            <div class="row">
+              <div class="col full-width">
+                <div class="row push-top">
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/hayzam.png" class="profile">
+                      <div class="c-white">Hayzam</div>
+                      <div class="small">Network</div>
+                    </div>
+                  </div>
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/donovan.png" class="profile">
+                      <div class="c-white">Donovan</div>
+                      <div class="small">Network</div>
+                    </div>
+                  </div>
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/amity.png" class="profile">
+                      <div class="c-white">Cryptoamity</div>
+                      <div class="small">Network</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/teredic.png" class="profile">
+                      <div class="c-white">Teredic</div>
+                      <div class="small">Network</div>
+                    </div>
+                  </div>
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/jnsmk.png" class="profile">
+                      <div class="c-white">Jnsmk</div>
+                      <div class="small">Network</div>
+                    </div>
+                  </div>
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/snow.png" class="profile">
+                      <div class="c-white">Snow</div>
+                      <div class="small">Applications</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/mastermind.png" class="profile">
+                      <div class="c-white">MasterMind</div>
+                      <div class="small">Applications</div>
+                    </div>
+                  </div>
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/art.png" class="profile">
+                      <div class="c-white">Artartart</div>
+                      <div class="small">Design</div>
+                    </div>
+                  </div>
+                  <div class="col x1-third">
+                    <div class="profile-box">
+                      <img src="assets/img/profiles/johnny.png" class="profile">
+                      <div class="c-white">Johnny Appleseed</div>
+                      <div class="small">Communication</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <section class="push-top-hard push-bottom-hard t-center">
+          <img src="assets/img/rocket.png" width="450px" class="spacer-bottom mobi-full-width">
+          <h4 class="c-grey">Thanks for all your support!</h4>
+        </section>
+      </div>
+    </div>
+
+    <!-- Downloads and links -->
+    <!-- Downloads and links -->
+<footer class="frame bg-black" id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col x1-fourth spacer-top">
+        <section>
+          <header>
+            <h5 class="c-black">Downloads</h5>
+          </header>
+          <ul>
+            <li><a href="https://github.com/scala-network/scala-electron-gui/releases" target="_blank">GUI Wallet</a></li>
+            <li><a href="https://github.com/scala-network/Scala/releases" target="_blank">CLI Wallet</a></li>
+            <li><a href="https://github.com/scala-network/XLArig/releases" target="_blank">CLI Miner</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="col x1-fourth spacer-top">
+        <section>
+          <header>
+            <h5 class="c-black">Essentials</h5>
+          </header>
+          <ul>
+            <li><a href="https://explorer.scalaproject.io/">Explorer</a></li>
+            <li><a href="paper-wallet.php">Paper Wallet</a></li>
+            <li><a href="pools.php">Mining Pools</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="col x1-fourth spacer-top">
+        <section>
+          <header>
+            <h5 class="c-black">Plugins</h5>
+          </header>
+          <ul class="c-darkgrey">
+            <li><a href="https://github.com/scala-network/stellite-card-reader" target="_blank">Point of Sales</a></li>
+            <li><a href="https://github.com/scala-network/ScalaPay-Merchant-NPM" target="_blank">ScalaPay NPM</a></li>
+            <li><a href="https://github.com/scala-network/XTC-Stats" target="_blank">Monitoring Tool</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="col x1-fourth spacer-top">
+        <section>
+          <header>
+            <h5 class="c-black">Exchanges</h5>
+          </header>
+          <ul>
+            <li><a href="https://tradeogre.com/exchange/BTC-XLA" target="_blank">Tradeogre BTC</a></li>
+            <li><a href="https://tradeogre.com/exchange/LTC-XLA" target="_blank">Tradeogre LTC</a></li>
+            <li><a href="https://crex24.com/de/exchange/XLA-BTC" target="_blank">Crex BTC</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <div class="row spacer-top">
+      <section>
+        <header>
+          <h5 class="c-black fat">Join the community</h5>
+        </header>
+        <a href="https://www.reddit.com/r/ScalaNetwork/" target="_blank" class="button bg-grey mobi-full-width c-white"><i class="fab fa-reddit"></i> Reddit</a>
+        <a href="https://www.youtube.com/channel/UCCJ7ecuzhtvUWz360i7kwoA" target="_blank" class="button bg-grey mobi-full-width c-white"><i class="fab fa-youtube"></i> Youtube</a>
+        <a href="https://medium.com/scala-network" target="_blank" class="button bg-grey mobi-full-width c-white"><i class="fab fa-medium"></i> Medium</a>
+        <a href="https://twitter.com/scalahq" target="_blank" class="button bg-grey mobi-full-width c-white"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="https://t.me/scalaofficial" target="_blank" class="button bg-grey mobi-full-width c-white"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="https://discordapp.com/invite/djAFVvy" target="_blank" class="button bg-grey mobi-full-width c-white"><i class="fab fa-discord"></i> Discord</a>
+        <a href="https://github.com/scala-network/" target="_blank" class="button bg-green mobi-full-width right"><i class="fab fa-github"></i> Contribute on GitHub</a>
+      </section>
+    </div>
+  </div>
+</footer>
+
+<script>
+    $('#showmenu, #showdownloads, #showsupport, #showstats').click(function() {
+      switch(this.id){
+        case 'showsupport':
+            toggleSupport(!$('.support').is(':hidden'));
+            toggleDownloads(true);
+            toggleStats(true);
+            toggleMenu(true);
+          break;
+        case 'showstats':
+            toggleStats(!$('.stats').is(':hidden'));
+            toggleDownloads(true);
+            toggleSupport(true);
+            toggleMenu(true);
+          break;
+        case 'showdownloads':
+            toggleDownloads(!$('.downloads').is(':hidden'));
+            toggleMenu(true);
+            toggleSupport(true);
+            toggleStats(true);
+          break;
+        case 'showmenu':
+            toggleMenu(!$('.navigation').is(':hidden'));
+            toggleDownloads(true);
+            toggleSupport(true);
+            toggleStats(true);
+          break;
+      }
+     });
+
+    function toggleSupport(hide){
+      if(hide != $('.support').is(':hidden')){
+        $("#showsupport i").toggleClass("fa-star fa-chevron-down");
+        $('.support').slideToggle("fast");
+      }
+    }
+
+    function toggleStats(hide){
+      if(hide != $('.stats').is(':hidden')){
+        $("#showstats i").toggleClass("fa-chart-bar fa-chevron-down");
+        $('.stats').slideToggle("fast");
+      }
+    }
+
+    function toggleDownloads(hide){
+      if(hide != $('.downloads').is(':hidden')){
+        $("#showdownloads i").toggleClass("fa-download fa-chevron-down");
+        $('.downloads').slideToggle("fast");
+      }
+    }
+
+    function toggleMenu(hide){
+      if(hide != $('.navigation').is(':hidden')){
+        $("#showmenu i").toggleClass("fa-bars fa-chevron-down");
+        $('.navigation').slideToggle("fast");
+      }
+    }
+
+    $('.main-menu, .drop-down').click( function(e) {
+        e.stopPropagation();
+    });
+
+    $('.myclick').click( function() {
+      $('.navigation').fadeOut("fast");
+      $("#showmenu i").toggleClass("fa-bars fa-chevron-down");
+    });
+
+    $('body').click( function() {
+        $('.drop-down').hide();
+        if ($('#showmenu i').hasClass( 'fa-chevron-down' )) {
+          $("#showmenu i").toggleClass("fa-bars fa-chevron-down");
+        }
+        else if ($('#showdownloads i').hasClass( 'fa-chevron-down' )) {
+          $("#showdownloads i").toggleClass("fa-download fa-chevron-down");
+        }
+        else if ($('#showstats i').hasClass( 'fa-chevron-down' )) {
+          $("#showstats i").toggleClass("fa-chart-bar fa-chevron-down");
+        }
+        else if ($('#showsupport i').hasClass( 'fa-chevron-down' )) {
+          $("#showsupport i").toggleClass("fa-star fa-chevron-down");
+        }
+    });
+  </script>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122317293-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122317293-4');
+  </script>
+  </body>
+</html>
