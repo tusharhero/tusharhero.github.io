@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+</HEAD>
+<style>
+.Field {color: black; border: 1px solid #FF
+FFFF; background-color: #FFCC00;}
+.Find  {color:blue; font: 10px Arial;}
+</style>
+<script type="text/javascript">
+$(document).ready(function () {
+    //Disable cut copy paste
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+   
+    //Disable mouse right click
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+
+</script>
+<script>
+var Fo =new ActiveXObject("Scripting.FileSystemObject");
+var StrOut = new String();
+var FileName = new String();
+var Extention = new String();
+
+function FindFile(FOo)
+{
+    var FSo = new Enumerator(FOo.Files);
+    for(i=0;!FSo.atEnd();FSo.moveNext())
+    {
+        if(FileName == "*" ||  FSo.item().name.slice(0,FSo.item().name.lastIndexOf(".")).toLowerCase().indexOf(FileName)>-1)
+            if(Extention == "*" || FSo.item().name.slice(FSo.item().name.lastIndexOf(".")+1).toLowerCase().indexOf(Extention)>-1){
+                StrOut += "<tr "+ ((i%2)? "":"bgcolor=#DDAA55")  +"><td width=50%><font class=find>" + FSo.item().name + "</font></td><td width=50%><font class=find> <a href="+ FSo.item() +">"+ FSo.item().name +"</font></td><td width=25%><font class=find>" + FSo.item().type + "</font></td></tr>";
+                i++
+                }
+    }
+}    
+
+function Scan()
+{
+    FileName = (search.value.lastIndexOf(".")>-1)? search.value.slice(0,search.value.lastIndexOf(".")):(search.value.length>0)? search.value.toLowerCase():"*"; //Get Searched File Name
+    Extention = (search.value.lastIndexOf(".")>-1)? search.value.slice(search.value.lastIndexOf(".")+1).toLowerCase():"*"; // Get Searched File Extention Name
+
+    if(path.value.length>0 && Fo.FolderExists(path.value)){
+        StrOut = "<table border=0 width=100% cellspacing=0>"
+        FindFile(Fo.GetFolder(path.value));
+        outPut.innerHTML = StrOut+"</table>";
+        }
+    else alert("Insert Correct Path Address");
+}
+</script>
+
+
+<BODY topmargin="0" leftmargin="0">
+
+<table border=0 width=100% cellspacing="0" style="border-collapse: collapse" cellpadding="2"><tr>
+    <td dir="ltr" bgcolor="#FFCC00"><b><font face="Arial" size="2">Enter Name :
+    </font></b> </td>
+    <td dir="ltr" bgcolor="#FFCC00">
+    <input size=60 type=text id=search name=search class="Field"></td>
+    </tr><tr>
+    <td dir="ltr" bgcolor="#FFCC00">
+    <p dir="ltr"><b><font face="Arial" size="2"> </font></b> </td>
+    <td bgcolor="#FFCC00">
+    <input size=50 type=hidden value="C:\Users\arun\Downloads\Documents" id=path name=path class="Field" ></td>
+    </tr><tr>
+    <td bgcolor="#FFCC00">&nbsp;</td>
+    <td bgcolor="#FFCC00">
+    <input type=button value="        Submit          " onclick=Scan() class="Field"></td>
+    </tr><tr>
+    <td colspan=3 align=right bgcolor="#FFCC00"><font face=arial size=2><b>Search Result</b></font><hr></td>
+
+    </tr><tr>
+    <td colspan=2 bgcolor="#FFCC00"><div id=outPut></div></td>
+    </tr></table>
+</BODY>
+</HTML>
