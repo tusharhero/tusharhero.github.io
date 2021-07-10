@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:og="http://ogp.me/ns#">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-53663789-17"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-53663789-17');
+</script>
+
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=no, user-scalable=0"
+/>
+
+<!-- <link rel="icon" type="image/png" href="/path/to/icons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/path/to/icons/favicon-32x32.png" sizes="32x32"> -->
+
+<link rel="stylesheet" href="/styles/style.top.css" />
+
+<!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+<!-- <link rel="manifest" href="/manifest.json"> -->
+<link rel="manifest" href="/manifest.json" />
+
+<link
+  rel="icon"
+  type="image/png"
+  href="/favicon-16x16.png"
+  sizes="16x16"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="/favicon-32x32.png"
+  sizes="32x32"
+/>
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+<meta property="og:title" content="Pomofocus" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pomofocus.io" />
+<meta
+  property="og:image"
+  content="https://pomofocus.io/images/ogimage.png"
+/>
+
+<!-- Google Signin -->
+<meta name="google-signin-scope" content="profile email" />
+<meta
+  name="google-signin-client_id"
+  content="186936238644-3o12ug37dq123f753bnth9fqai9e2tmf.apps.googleusercontent.com"
+/>
+<script
+  src="https://apis.google.com/js/platform.js"
+  async
+  defer
+></script>
+
+<meta name="saashub-verification" content="292uvoz7flke" />
+
+<!-- Hotjar Tracking Code for https://pomofocus.io -->
+<!-- <script defer>
+  (function(h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function() {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 1623339, hjsv: 6 };
+    a = o.getElementsByTagName('head')[0];
+    r = o.createElement('script');
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(
+    window,
+    document,
+    'https://static.hotjar.com/c/hotjar-',
+    '.js?sv=',
+  );
+</script> -->
+
+    <title>Pomodoro Timer Online - Pomofocus</title>
+    <meta
+      name="description"
+      content="A simple Pomodoro Timer app that works on a desktop & mobile browser. Pomofucus will help you manage your time and let you focus on any tasks such as study, writing, or coding."
+    />
+  </head>
+  <body ontouchstart="">
+    <main>
+      <div id="target">
+        <div class="spinner__wrapper">
+          <div class="spinner__text">Loading</div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const timeWorker = new Worker('js/timeWorker.js');
+    </script>
+
+    <script src="/main.bundle.js"></script>
+
+    <script src="https://js.stripe.com/v3" async></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo93Z6UoLlvljTzZ-KwNufORJWblQbtjs&libraries=places&callback=initMap"></script> -->
+  </body>
+</html>

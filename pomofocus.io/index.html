@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:og="http://ogp.me/ns#">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-53663789-17"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-53663789-17');
+</script>
+
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=no, user-scalable=0"
+/>
+
+<!-- <link rel="icon" type="image/png" href="/path/to/icons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/path/to/icons/favicon-32x32.png" sizes="32x32"> -->
+
+<link rel="stylesheet" href="/styles/style.top.css" />
+
+<!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+<!-- <link rel="manifest" href="/manifest.json"> -->
+<link rel="manifest" href="/manifest.json" />
+
+<link
+  rel="icon"
+  type="image/png"
+  href="/favicon-16x16.png"
+  sizes="16x16"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="/favicon-32x32.png"
+  sizes="32x32"
+/>
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+<meta property="og:title" content="Pomofocus" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pomofocus.io" />
+<meta
+  property="og:image"
+  content="https://pomofocus.io/images/ogimage.png"
+/>
+
+<!-- Google Signin -->
+<meta name="google-signin-scope" content="profile email" />
+<meta
+  name="google-signin-client_id"
+  content="186936238644-3o12ug37dq123f753bnth9fqai9e2tmf.apps.googleusercontent.com"
+/>
+<script
+  src="https://apis.google.com/js/platform.js"
+  async
+  defer
+></script>
+
+<meta name="saashub-verification" content="292uvoz7flke" />
+
+<!-- Hotjar Tracking Code for https://pomofocus.io -->
+<!-- <script defer>
+  (function(h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function() {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 1623339, hjsv: 6 };
+    a = o.getElementsByTagName('head')[0];
+    r = o.createElement('script');
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(
+    window,
+    document,
+    'https://static.hotjar.com/c/hotjar-',
+    '.js?sv=',
+  );
+</script> -->
+
+    <title>Pomodoro Timer Online - Pomofocus</title>
+    <meta
+      name="description"
+      content="A simple Pomodoro Timer app that works on a desktop & mobile browser. Pomofucus will help you manage your time and let you focus on any tasks such as study, writing, or coding."
+    />
+  </head>
+  <body ontouchstart="">
+    <!-- For Facebook Share Button -->
+    <!-- <div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=518798042189858&autoLogAppEvents=1"></script> -->
+    <main>
+      <!-- <div class="headerwrapper">
+			<div class="container">
+					<div class="brandlogo"><a href="/"><Icon class="icon" src="/icons/timer-silhouette.png" />Pomofocus</a></div>
+			</div>
+		</div> -->
+
+      <div id="target">
+        <div class="spinner__wrapper">
+          <div class="spinner__text">Loading</div>
+        </div>
+      </div>
+      <!-- <div
+        class="g-signin2"
+        data-onsuccess="onSignIn"
+        data-theme="dark"
+      ></div> -->
+      <!-- <div class="facebook_like">
+        <div class="container adsection__wrapper">
+          <div id="CustomDonationsForm"></div>
+          <iframe
+            style="width:120px;height:240px;"
+            marginwidth="0"
+            marginheight="0"
+            scrolling="no"
+            frameborder="0"
+            src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=ys0520-20&marketplace=amazon&region=US&placement=B00A376NI8&asins=B00A376NI8&linkId=f9e55779b40bb6b38804586a76e0c203&show_border=false&link_opens_in_new_window=true&price_color=333333&title_color=f05b56&bg_color=ffffff"
+          >
+          </iframe>
+          <iframe
+            style="width:120px;height:240px;"
+            marginwidth="0"
+            marginheight="0"
+            scrolling="no"
+            frameborder="0"
+            src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=ys0520-20&marketplace=amazon&region=US&placement=0143126563&asins=0143126563&linkId=1c50ff25c869f5633fb937a2a1273129&show_border=false&link_opens_in_new_window=true&price_color=333333&title_color=f05b56&bg_color=ffffff"
+          >
+          </iframe>
+        </div>
+      </div> -->
+
+      <div class="heroimage container">
+        <h1 class="heroimage__title">
+          An online Pomodoro Timer to boost your productivity
+        </h1>
+        <!-- <image src="/images/heroimage2.png" class="heroimage__img"></image> -->
+      </div>
+
+      <div class="catchcopy container">
+        <h2 class="catchcopy__header">What is Pomofocus?</h2>
+        <p class="catchcopy__text">
+          Pomofocus is a customizable pomodoro timer that works on
+          desktop & mobile browser. The aim of this app is to help you
+          focus on any task you are working on, such as study,
+          writing, or coding. This app is inspired by
+          <a
+            href="https://francescocirillo.com/pages/pomodoro-technique"
+            target="_blank"
+            rel="noopener"
+            >Pomodoro Technique</a
+          >
+          which is a time management method developed by Francesco
+          Cirillo.
+        </p>
+      </div>
+
+      <div class="pomodoro container">
+        <h2 class="catchcopy__header">What is Pomodoro Technique?</h2>
+        <p class="catchcopy__text">
+          The Pomodoro Technique is created by Francesco Cirillo for a
+          more productive way to work and study. The technique uses a
+          timer to break down work into intervals, traditionally 25
+          minutes in length, separated by short breaks. Each interval
+          is known as a pomodoro, from the Italian word for 'tomato',
+          after the tomato-shaped kitchen timer that Cirillo used as a
+          university student. -
+          <a
+            href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+            target="_blank"
+            rel="noopener"
+            >Wikipedia</a
+          >
+        </p>
+      </div>
+
+      <div class="pomodoro container">
+        <h2 class="catchcopy__header">
+          How to use the Pomodoro Timer?
+        </h2>
+        <ol class="features__list-ol">
+          <li><strong>Add tasks</strong> to work on today</li>
+          <li>
+            <strong>Set estimate pomodoros</strong> (1 = 25min of
+            work) for each tasks
+          </li>
+          <li><strong>Select a task</strong> to work on</li>
+          <li>
+            <strong>Start timer</strong> and focus on the task for 25
+            minutes
+          </li>
+          <li>
+            <strong>Take a break</strong> for 5 minutes when the alarm
+            ring
+          </li>
+          <li>
+            <strong>Iterate</strong> 3-5 until you finish the tasks
+          </li>
+        </ol>
+      </div>
+
+      <div class="features container">
+        <h2 class="catchcopy__header">Features</h2>
+        <ul class="features__list">
+          <li>
+            <strong>Responsive design</strong> that works with desktop
+            and mobile
+          </li>
+          <li>
+            <strong>Color transition</strong> to switch moods between
+            work time and rest time
+          </li>
+          <li>
+            <strong>Audio notification</strong> at the end of a timer
+            period
+          </li>
+          <li>
+            <strong>Customizable timer</strong> intervals to suit your
+            preference
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="maker container">
+        <h2 class="catchcopy__header">Contact</h2>
+        <div class="maker__card">
+          <div class="maker__left">
+            <img
+              class="maker__picture"
+              src="/images/mypicture.jpeg"
+            />
+          </div>
+          <div class="maker__right">
+            <div class="maker__right__title">MAKER OF POMOFOCUS</div>
+            <p class="maker__right__description">
+              Thank you for using Pomofocus. If you have any requests
+              or questions, don't hesitate to contact me at
+              <a
+                href="https://twitter.com/uzu1989"
+                target="_blank"
+                id="twitter-link"
+                >@uzu1989</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div> -->
+    </main>
+    <div class="footer">
+	<div class="footer__sitemap container">
+			<a href="/">HOME</a>
+			<a href="/privacy">PRIVACY</a>
+			<a href="mailto:pomofocus@gmail.com">CONTACT</a>
+			<a href="/app">SIMPLE VERSION</a>
+	</div>
+	<div class="footer__snslinks container">
+		<a href="https://www.facebook.com/pomofocus" target="_blank" rel="noopener"><img src="/icons/facebook.png" alt="facebook icon" /></a>		
+		<a href="https://twitter.com/pomofocus" target="_blank" rel="noopener"><img src="/icons/twitter.png" alt="twitter icon" /></a>		
+				
+			<div class="footer__snslink__ph" >
+				<a href="https://www.producthunt.com/posts/pomofocus-io" target="_blank" rel="noopener">P</a>
+			</div>
+			<!-- <a href="mailto:pomofocus@gmail.com"><img src="/icons/envelope.png" alt="email icon" /></a> -->
+	</div>
+		<div class="footer__me">Made with <3 by <a href="https://uzu.works" target="_blank" rel="noopener">Yuya Uzu</a></div>
+		<div class="footer__allrights container">&copy;Pomofocus 2021. All Rights Reserved.</div>
+	</div>
+</div>
+
+    <script>
+      const timeWorker = new Worker('js/timeWorker.js');
+    </script>
+
+    <script src="/main.bundle.js"></script>
+
+    <script src="https://js.stripe.com/v3" async></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo93Z6UoLlvljTzZ-KwNufORJWblQbtjs&libraries=places&callback=initMap"></script> -->
+  </body>
+</html>
